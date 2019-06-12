@@ -3,6 +3,8 @@ $(document).ready(function () {
 
   var topics = ["Iron Man", "Captain America", "Thor", "Hawkeye", "Hulk", "Ant-Man", "Spider-Man", "Gamora", "Groot", "Thanos"]
 
+  // buttons for the array 
+
   function renderButtons() {
     // loop through the array
     topics.forEach(topic => {
@@ -20,22 +22,25 @@ $(document).ready(function () {
 
   renderButtons();
 
+ // new characters created by a button
 
   $("#add-character").on("click", function (event) {
     event.preventDefault();
 
     var newCharacter = $("#character-input").val();
-    console.log(newCharacter)
+    
     var $newButton = $("<button>")
     $newButton.text(newCharacter);
     $newButton.addClass('topic');
     $newButton.attr('data-character', newCharacter);
     $('#buttons-view').append($newButton);
 
+    // Function to display gifs on the array 
+
     $('.topic').on('click', function () {
       var selectedCharacter = $(this).attr("data-character")
-      console.log(selectedCharacter)
-  
+      
+      
       var apiKey = "MJelyQnaKKOLE5449vqoRJKL11SK3ZQW";
   
       var urlQuery = "https://api.giphy.com/v1/gifs/search?q=" + selectedCharacter
@@ -47,7 +52,7 @@ $(document).ready(function () {
   
       }).then(response => {
         var results = response.data
-        console.log(response.data)
+        $("#gifs-appear-here").empty()
   
         for (var i = 0; i < results.length; i++) {
           var gifDiv = $("<div>");
@@ -85,10 +90,10 @@ $(document).ready(function () {
 
   })
 
+  // function on.click to display gifs appended to the new buttons
 
   $('.topic').on('click', function () {
     var selectedCharacter = $(this).attr("data-character")
-    console.log(selectedCharacter)
 
     var apiKey = "MJelyQnaKKOLE5449vqoRJKL11SK3ZQW";
 
@@ -101,7 +106,6 @@ $(document).ready(function () {
 
     }).then(response => {
       var results = response.data
-      console.log(response.data)
       $("#gifs-appear-here").empty()
       
       for (var i = 0; i < results.length; i++) {
@@ -122,19 +126,23 @@ $(document).ready(function () {
         $("#gifs-appear-here").append(gifDiv);
       }
     })
+ 
 
-    $(".gifDiv").on("click", function () {
-
-      let = state = $(this).attr('data-state');
-
-      if (results === 'still') {
-        $(this).attr('src', $(this).attr('data-animate'));
-        $(this).attr('data-state', 'animate');
-      } else {
-        $(this).attr('src', $(this).attr('data-still'));
-        $(this).attr('data-state', 'still');
-      }
-    });
   })
+
+   // Function pausing Gifs
+
+  $(".gifDiv").on("click", function () {
+
+    let = state = $(this).attr('data-character');
+
+    if (results === 'still') {
+      $(this).attr('src', $(this).attr('data-animate'));
+      $(this).attr('data-character', 'animate');
+    } else {
+      $(this).attr('src', $(this).attr('data-still'));
+      $(this).attr('data-character', 'still');
+    }
+  });
 
 });
