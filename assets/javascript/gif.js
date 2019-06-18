@@ -81,6 +81,7 @@ $(document).ready(function () {
         }
       })
 
+   
     })
   
 
@@ -135,24 +136,22 @@ $(document).ready(function () {
 
   })
 
-
-
   
   
   // Function pausing Gifs
 
-  $(".gifDiv").on("click", function () {
+  // $(".gifDiv").on("click", function () {
 
-    let = state = $(this).attr('data-state');
+  //   let = state = $(this).attr('data-character');
 
-    if (state === characterImage ) {
-      $(this).attr('src', $(this).attr('data-character');
-      $(this).attr('data-character', 'animate');
-    } else {
-      $(this).attr('src', $(this).attr('data-still'));
-      $(this).attr('data-character', 'still');
-    }
-  }); 
+  //   if (results === 'still') {
+  //     $(this).attr('src', $(this).attr('data-animate'));
+  //     $(this).attr('data-character', 'animate');
+  //   } else {
+  //     $(this).attr('src', $(this).attr('data-still'));
+  //     $(this).attr('data-character', 'still');
+  //   }
+  // });
 
 
 
