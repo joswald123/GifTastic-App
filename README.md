@@ -8,8 +8,6 @@ This app works with the GIPHY API and use JavaScript and jQuery to change the HT
 
 Hint: Like many APIs, GIPHY requires developers to use a key to access their API data. To use the GIPHY API, you'll need a GIPHY account and then obtain an API Key by creating an app.
 
-When the user clicks on a button of each character, the page grabs 10 animated gif images from the GIPHY API and place them on the page.
-
 ![Page Screen](/assets/images/PageScreen2.PNG)
 
 When the user clicks on a button of each character, the page grabs 10 animated gif images from the GIPHY API and place them on the page.
