@@ -103,7 +103,7 @@ $(document).ready(function () {
 
     }).then(response => {
       var results = response.data
-      console.log(response.data)
+      // console.log(response.data)
       $("#gifs-appear-here").empty()
 
       for (var i = 0; i < results.length; i++) {
