@@ -51,6 +51,7 @@ $(document).ready(function () {
 
       }).then(response => {
         var results = response.data
+        console.log(results)
         $("#gifs-appear-here").empty()
 
         for (var i = 0; i < results.length; i++) {
@@ -71,7 +72,7 @@ $(document).ready(function () {
           var characterImage = $('<img>');
           // characterImage.addClass()
           gifDiv.addClass("gifDiv");
-          characterImage.attr("src", results[i].images.original.url);
+          characterImage.attr("src", results[i].images.original_still.url);
 
           gifDiv.prepend(p, p1);
           gifDiv.prepend(characterImage);
@@ -81,7 +82,6 @@ $(document).ready(function () {
         }
       })
 
-   
     })
   
 
