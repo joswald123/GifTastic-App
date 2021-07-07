@@ -65,7 +65,8 @@ $(document).ready(function () {
           //Tittle info
           var title = results[i].title;
 
-          var p1 = $("<p>").text("Title: " + title
+          var p1 = $("<p>").text("Title: " + title);
+
 
           //image 
           var characterImage = $('<img>');
@@ -123,7 +124,7 @@ $(document).ready(function () {
         var characterImage = $('<img>');
         // characterImage.addClass()  
         gifDiv.addClass("gifDiv");
-        characterImage.attr("src", results[i].images.original.url);
+        characterImage.attr("src", results[i].images.original_still.url);
 
         gifDiv.prepend(p, p1);
         gifDiv.prepend(characterImage);
