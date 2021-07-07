@@ -65,8 +65,7 @@ $(document).ready(function () {
           //Tittle info
           var title = results[i].title;
 
-          var p1 = $("<p>").text("Title: " + title);
-
+          var p1 = $("<p>").text("Title: " + title
 
           //image 
           var characterImage = $('<img>');
