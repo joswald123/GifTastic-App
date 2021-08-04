@@ -23,7 +23,6 @@ $(document).ready(function () {
   renderButtons();
 
   // new characters created by a button
-
   $("#add-character").on("click", function (event) {
     event.preventDefault();
 
@@ -36,19 +35,16 @@ $(document).ready(function () {
     $('#buttons-view').append($newButton);
 
     // Function to display gifs on the array 
-
     $('.topic').on('click', function () {
       var selectedCharacter = $(this).attr("data-character")
 
       // var apiKey = "MJelyQnaKKOLE5449vqoRJKL11SK3ZQW";
-
       var urlQuery = "https://api.giphy.com/v1/gifs/search?q=" + selectedCharacter
         + "&api_key=MJelyQnaKKOLE5449vqoRJKL11SK3ZQW&limit=10";
 
       $.ajax({
         url: urlQuery,
         method: "GET"
-
       }).then(response => {
         var results = response.data
         console.log(results)
@@ -59,15 +55,12 @@ $(document).ready(function () {
 
           // Rating info 
           var rating = results[i].rating;
-
           var p = $("<p>").text("Rating: " + rating);
-
+          
           //Tittle info
           var title = results[i].title;
-
           var p1 = $("<p>").text("Title: " + title);
-
-
+          
           //image 
           var characterImage = $('<img>');
           // characterImage.addClass()
@@ -76,8 +69,6 @@ $(document).ready(function () {
 
           gifDiv.prepend(p, p1);
           gifDiv.prepend(characterImage);
-
-
           $("#gifs-appear-here").prepend(gifDiv);
         }
       })
@@ -87,20 +78,18 @@ $(document).ready(function () {
 
   })
 
-  // function to display gifs appended to the new buttons
+  // Function to display gifs appended to the new buttons
 
   $('.topic').on('click', function () {
     var selectedCharacter = $(this).attr("data-character")
 
     // var apiKey = "MJelyQnaKKOLE5449vqoRJKL11SK3ZQW";
-
     var urlQuery = "https://api.giphy.com/v1/gifs/search?q=" + selectedCharacter
       + "&api_key=MJelyQnaKKOLE5449vqoRJKL11SK3ZQW&limit=10";
 
     $.ajax({
       url: urlQuery,
       method: "GET"
-
     }).then(response => {
       var results = response.data
       // console.log(response.data)
@@ -111,18 +100,16 @@ $(document).ready(function () {
 
         // Rating info 
         var rating = results[i].rating;
-
         var p = $("<p>").text("Rating: " + rating);
 
         //Tittle info
         var title = results[i].title;
-
         var p1 = $("<p>").text("Title: " + title);
 
 
         //image 
         var characterImage = $('<img>');
-        // characterImage.addClass()  
+        // characterImage.addClass("movimiento")
         gifDiv.addClass("gifDiv");
         characterImage.attr("src", results[i].images.original_still.url);
 
@@ -137,21 +124,23 @@ $(document).ready(function () {
   })
 
   
-  
-  // Function pausing Gifs
+  // Function to animate Gifs
 
-  // $(".gifDiv").on("click", function () {
+  $("#img.animate").on("click", function () {
 
-  //   let = state = $(this).attr('data-character');
+    alert("Funcionando")
+    // var animate = $(this).attr("src", results[i].images.original.url);
 
-  //   if (results === 'still') {
-  //     $(this).attr('src', $(this).attr('data-animate'));
-  //     $(this).attr('data-character', 'animate');
-  //   } else {
-  //     $(this).attr('src', $(this).attr('data-still'));
-  //     $(this).attr('data-character', 'still');
-  //   }
-  // });
+    // let = state = $(this).attr('data-character');
+
+    // if (results === 'still') {
+    //   $(this).attr('src', $(this).attr('data-animate'));
+    //   $(this).attr('data-character', 'animate');
+    // } else {
+    //   $(this).attr('src', $(this).attr('data-still'));
+    //   $(this).attr('data-character', 'still');  
+    // }
+  });
 
 
 
