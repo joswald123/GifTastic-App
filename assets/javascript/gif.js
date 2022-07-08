@@ -34,13 +34,13 @@ $(document).ready(function () {
     $newButton.attr('data-character', newCharacter);
     $('#buttons-view').append($newButton);
 
+
+
     // Function to display gifs on the array 
     $('.topic').on('click', function () {
       var selectedCharacter = $(this).attr("data-character")
 
-      // var apiKey = "MJelyQnaKKOLE5449vqoRJKL11SK3ZQW";
-      var urlQuery = "https://api.giphy.com/v1/gifs/search?q=" + selectedCharacter
-        + "&api_key=MJelyQnaKKOLE5449vqoRJKL11SK3ZQW&limit=10";
+      var urlQuery = `${process.env.GYPHY_URL}selectedCharacter&api_key=${process.env.GYPHY_KEY}`;
 
       $.ajax({
         url: urlQuery,
@@ -56,11 +56,11 @@ $(document).ready(function () {
           // Rating info 
           var rating = results[i].rating;
           var p = $("<p>").text("Rating: " + rating);
-          
+
           //Tittle info
           var title = results[i].title;
           var p1 = $("<p>").text("Title: " + title);
-          
+
           //image 
           var characterImage = $('<img>');
           // characterImage.addClass()
@@ -74,18 +74,17 @@ $(document).ready(function () {
       })
 
     })
-  
+
 
   })
 
-  // Function to display gifs appended to the new buttons
+  //Function to display gifs appended to the new buttons
 
   $('.topic').on('click', function () {
     var selectedCharacter = $(this).attr("data-character")
 
     // var apiKey = "MJelyQnaKKOLE5449vqoRJKL11SK3ZQW";
-    var urlQuery = "https://api.giphy.com/v1/gifs/search?q=" + selectedCharacter
-      + "&api_key=MJelyQnaKKOLE5449vqoRJKL11SK3ZQW&limit=10";
+    var urlQuery = `${process.env.GYPHY_URL}selectedCharacter&api_key=${process.env.GYPHY_KEY}`;
 
     $.ajax({
       url: urlQuery,
@@ -123,13 +122,15 @@ $(document).ready(function () {
 
   })
 
-  
+
   // Function to animate Gifs
 
-  $("#img.animate").on("click", function () {
+  $(".gifDiv").on("click", function () {
+    console.log("listening")
 
-    alert("Funcionando")
+    // alert("Funcionando")
     // var animate = $(this).attr("src", results[i].images.original.url);
+    // console.log(animate)
 
     // let = state = $(this).attr('data-character');
 
